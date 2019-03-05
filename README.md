@@ -1,4 +1,4 @@
-# ne-visit-packet
+# UC Berkeley Nuclear Engineering Visit Packet
 
 This repository contains the LaTeX source files for the UC Berkeley Department of Nuclear Engineering prospective graduate student visit packet.
 The packet is a document assembled by current UC Berkeley NE graduate students to represent the individuals who make up the department.
