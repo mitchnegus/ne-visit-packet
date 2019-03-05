@@ -5,7 +5,7 @@ The packet is a document assembled by current UC Berkeley NE graduate students t
 The packet features short bios of students, activities and extracurriculars, and ends with photos of Berkeley students living life to the fullest.
 
 <div align='center'>
-<img src='fig/ne_logo.png' width='30%'>
+<img src='fig/ne_logo.png' width='25%'>
 </div>
 
 ## Editing & Updating
