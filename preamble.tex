@@ -1,0 +1,140 @@
+% PACKAGES %
+\usepackage[english]{} % Sets the language
+\usepackage{fontspec} % Allows the use of TTF fonts
+\usepackage[margin=2.5cm]{geometry} % Sets the margin size
+\usepackage{titlesec} % Allows custom section heading sizes
+\usepackage{graphicx} % Enhanced package for including graphics/figures
+\usepackage{wrapfig} % Allows text to wrap around figures
+\usepackage{float} % Allows figures and tables to be floats
+\usepackage{amsmath} % Enhanced math package prepared by the American Mathematical Society
+\usepackage{setspace} % Allows you to change the spacing between lines at different points in the document
+\usepackage{parskip} % Allows you alter the spacing between paragraphs
+\usepackage{multicol} % Allows text division into multiple columns
+\usepackage{enumerate} % Allows you to use customizable bullets
+\usepackage{ifthen} % Allow conditional statements
+%%\usepackage{fancyhdr} % Allows customizable headers and footers
+
+% Set the main font for the document
+\setmainfont[Ligatures=TeX]{OpenSans}	
+% Set path to figure image files
+\graphicspath{ {fig/} }
+
+% Increase font size of section headings
+\titleformat*{\section}{\huge\bfseries}
+% Decrease font size for chapter headings (only used for table of contents)
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\filcenter}{\chaptertitlename\ \thechapter}{20pt}{\LARGE}
+\titlespacing*{\chapter}
+  {0pt}{50pt}{30pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                          %%%
+%%%       Faculty Page       %%%
+%%%                          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Create a shortcut for constructing rows of "faculty tiles"
+% 	- Each `\facultyrow` takes 2 `\facultytile` entries as arguments
+% 	- Uses minipages to allow two columns to be placed side by side
+\newcommand{\facultyrow}[2]{
+	\begin{minipage}[t][4.5cm][t]{\textwidth}
+		#1
+		\hfill
+		#2
+	\end{minipage}
+}
+
+% Create a shortcut for constructing a "faculty tile"
+% 	- Each `\facultytile` takes 5 arguments
+%		1. faculty image filename (should be 3:2 aspect ratio)
+%		2. faculty name 
+%		3. faculty position
+%		4. faculty email
+%		5. description
+\newcommand{\facultytile}[5]{
+	\begin{minipage}[t][5cm][t]{0.47\textwidth}
+		% Minipage for image
+		\begin{minipage}[t][5cm][t]{0.25\textwidth}
+			\vspace{0pt}\includegraphics[width=\linewidth]{#1}
+		\end{minipage}
+		\hfill
+		% Minipage for caption
+		\begin{minipage}[t][5cm][t]{0.72\textwidth}
+			% Name
+			\vspace{0pt}\textbf{#2} \vspace{0.05cm}\newline
+			% Title
+			{\footnotesize \textbf{#3}
+			% Email (if included)
+			\ifthenelse{\equal{#4}{}}{}{\newline\textit{#4}}
+			% Research
+			\vspace{0.1cm}
+			\begin{spacing}{1.0}
+				#5
+			\end{spacing}}
+		\end{minipage}
+	\end{minipage}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                          %%%
+%%%   Research Group Pages   %%%
+%%%                          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Create a shortcut for group name titles
+\newcommand{\grouptitle}[1]{
+	\hrulefill\vspace{0.5cm}
+
+	{\huge #1}
+}
+
+% Create a shortcut for constructing rows of "student tiles"
+% 	- Each `\studentrow` takes 2 `\studenttile` entries as arguments
+% 	- Uses minipages to allow two columns to be placed side by side
+\newcommand{\studentrow}[2]{
+	\begin{minipage}[t][4.5cm][t]{\textwidth}
+		#1
+		\hfill
+		#2
+	\end{minipage}
+}
+% Create a special shortcut including the members title with the first row
+\newcommand{\firststudentrow}[2]{
+	\begin{minipage}{\textwidth}
+		\vspace{0.5cm}{\Large Members}\vspace{0.25cm}
+	
+		\studentrow{#1}{#2}
+	\end{minipage}
+}
+
+% Create a shortcut for constructing a "student tile"
+% 	- Each `\studenttile` takes 5 arguments
+%		1. student image filename (should be square aspect ratio)
+%		2. student name 
+%   3. student pronouns
+%		4. student email
+%		5. bio 
+\newcommand{\studenttile}[5]{
+	\begin{minipage}[t][5cm][t]{0.5\textwidth}
+		% Minipage for image
+		\begin{minipage}[t][5cm][t]{0.35\textwidth}
+			\vspace{0pt}\includegraphics[width=\linewidth]{#1}
+		\end{minipage}
+		\hspace{0.25cm}
+		% Minipage for caption
+		\begin{minipage}[t][5cm][t]{0.55\textwidth}
+			% Name
+			\vspace{0pt}\textbf{#2} \vspace{0.05cm}
+			% Pronouns (if included)
+			{\scriptsize\ifthenelse{\equal{#3}{}}{}{\newline\textbf{\textit{#3}}}
+			% Email (if included)
+			\ifthenelse{\equal{#4}{}}{}{\newline\textit{#4}}
+			% Bio 
+			\vspace{0.1cm}
+			\begin{spacing}{1.0}
+				#5
+			\end{spacing}}
+		\end{minipage}
+	\end{minipage}
+}
