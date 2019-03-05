@@ -38,7 +38,7 @@ All figures used in the document should be stored in the `fig` directory.
 #### Templates
 
 The files are designed to be fairly easy to work with, so that you (hopefully) shouldn't need a ton of TeX expertise to update them.
-Whenever possible, I've added `\newcommand` templates so that things can be adjusted easily as students graduate or Professors are hired/retire—no need to dig around too much in the LaTeX code.
+Whenever possible, I've added `\newcommand` templates so that things can be adjusted easily as students graduate and professors are hired/retire—no need to dig around too much in the LaTeX code.
 As an example, for the faculty and student tiles, a user just needs to specify fields in the corresponding `\facultytile`/`\studenttile` commands.
 More details can be found at the tops of those respective files (`faculty.tex` and `research_groups.tex`).
 Still, despite my best attempts, configuring image locations is still a bit tricky. 
