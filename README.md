@@ -32,8 +32,7 @@ These body elements are (in order):
 * `activities.tex`: A section on extracurricular activities of Berkeley students
 * `berkeley_life.tex`: A section with photos of UC Berkeley students in action
 
-All figures used in the document should be stored in the `fig` directory.
-
+All figures used in the document should be stored in the `fig` directory. Be mindful of the fact that while LaTeX will shrink displayed images to the size specified in the document, it appears that the full image file is still stored in the compiled PDF. A handul of high-resolution images will quickly cause the PDF to balloon in size.
 
 #### Templates
 
@@ -45,6 +44,8 @@ Still, despite my best attempts, configuring image locations is still a bit tric
 Finagling those to show up well may require a bit of effort, especially for images of different sizes.
 My suggestion is that you get familiar with the `minipage` and `wrapfigure` environments, and then you can play around with getting the dimensions and spacing just right. 
 
-One last note: the document uses a non-standard LaTeX font (OpenSans, described in the file `OpenSans-Regular.ttf`), and so it must be compiled using LuaLaTeX, not the standard pdflatex compiler. 
+One last note: the document uses a non-standard LaTeX font (OpenSans, described in the file `OpenSans-Regular.ttf`), and so it must be compiled using LuaLaTeX, not the standard pdflatex compiler.
+A compiler directive is provided in the first line of the `visit-packet.tex` file and ideally your LaTeX editor will process the file accordingly.
+If not, you may have to look up LuaLaTeX compiling instructions for your system.
 
 Good luck and go bears!
