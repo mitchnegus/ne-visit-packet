@@ -83,10 +83,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Create a shortcut for group name titles
-\newcommand{\grouptitle}[1]{
-	\hrulefill\vspace{0.5cm}
+% 	- Each `\grouptitle` takes 2 arguments
+% 	1. group name
+% 	2. group leader
+\newcommand{\grouptitle}[2]{
+	\hrulefill
+	\vspace{1cm}
 
 	{\huge #1}
+	
+	\ifthenelse{\equal{#2}{}}{}{\vspace{0.1cm}\textbf{\textit{#2}}}
+	\vspace{0.3cm}
 }
 
 % Create a shortcut for constructing rows of "student tiles"
@@ -110,7 +117,7 @@
 
 % Create a shortcut for constructing a "student tile"
 % 	- Each `\studenttile` takes 5 arguments
-%		1. student image filename (should be square aspect ratio)
+%		1. student image filename (should be square aspect ratio, ideally 500x500)
 %		2. student name 
 %   3. student pronouns
 %		4. student email
